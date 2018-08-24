@@ -133,8 +133,6 @@ namespace eka2l1 {
             utf16_str name;
 
             std::vector<rom_entry> entries;
-
-            // Subdirs filtering
             std::vector<rom_dir> subdirs;
         };
 

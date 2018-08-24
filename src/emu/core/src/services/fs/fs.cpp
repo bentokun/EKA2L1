@@ -237,8 +237,8 @@ namespace eka2l1 {
         }
 
         int read_len = *ctx.get_arg<int>(1);
-
         int read_pos = *ctx.get_arg<int>(2);
+
         uint64_t last_pos = vfs_file->tell();
         uint64_t size = vfs_file->size();
 
@@ -254,7 +254,7 @@ namespace eka2l1 {
         vfs_file->read_file(read_data.data(), 1, read_len);
 
         ctx.write_arg_pkg(0, reinterpret_cast<uint8_t *>(read_data.data()), read_len);
-        ctx.set_request_status(read_len);
+        ctx.set_request_status(KErrNone);
     }
 
     void fs_server::new_file_subsession(service::ipc_context ctx, bool overwrite) {
