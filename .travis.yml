@@ -1,49 +1,46 @@
 language: cpp
-
 cache: ccache
-
 env:
   global:
-    - secure: YdQjksdi5l3kyO5fvAUbKSM3ryFHkuxWmA+0+izFmyyMQ14JlEzMuGWZ3SkKq9fYW5tErOZYBdRrGo6esyLDlKFQvmJrMMUFq0zE8s9I6qpPIIzFlC8kZ/OgKe/gNHa5OZi4+lfBnxVWzxwS8zYs8pC1X7vj17FWQ7nfS1cxneWVrfNHHNJ2/70KQJ5QkRP2TtXsBCmjBQufVwmG9O09cuvwa+2spkZdRtQoMXJYWrc+buK/hjG/ARc4pU6UTjBe+/RS1L51TdzfhYQQppKyIOOVuPj21/hyR+2HGZSk25QUlv9lyAl/Opv9ME5Ue/jfJwhAoHvO7kk9+5X6qljkXb5doOvbrVUgGaXVfu87AaQw+PR32aaDrrihLXP/iyoGpUarvgZqa+VaCzaDrTsw/iMWzSnrYBPoMCFgoBYM6QyfE4GjJbvh+OYlqbCkDdIudXf7iY9Yi35Ye+3nfhsPMUhZQzZiXdIuZOoVtDNbk/7XtUYtqHX1fydowf89SBUxICAaoZ4KDmtkd8u4W/04SA0XBhdMuzhinlyw3S3agnHT9lKW1dWL4EvsZc2qCCEyzNH26SKwhj9EfwFmaCmKMDoVw7HkfiRg+Veje55xDjgcTdxmUOTNmWI1kpXQZSMbFXTYm3fpTW3DoOZ5CjWSoc3UPY8xgHSo28cDgFCOEzw=
-
+  - secure: NuEb9gGLxu2F0uIYYDhs9s+DlNPNQD7rCPi1dj/ICpDYtCAqop4idOW01cYByvKw0XxWFM+Dpc0BmpaBn42tI5BUtUh89AynxRJypOuHMZXZkIbHPWWuKRkZcwXHGLLZUEkpewlrYOA6bIrb7acbK/r+z9Uk/smcWEQwKuP7dS6I6Rr11f9CgSZHHQoihECpm8aAYV9W1nb/DkRmvtjVx6HewlxZGg/PD+Xv1vXNkvqiQ8v6ned5zJ5x6VL76E+1lHstPzRh2UvJagljnE2K3NMWMjmCJknhEKyxmdVL8hCLHcy8rBU0LP7P0yaDzvq0/ha8omS21x9OuhQwwOEhQjGa1wlpxSbHvhzwYmo+um/FYae4buKi3ulBc/Wet+Y+NJT9kjcssqGo/dy9WsjI4+TP/J8vXZx2UN6wNsUt5/tdEd6vqcbPCpATpVZzCgTdn5A2SCL4/EHdFlfPafCYhZS8ZyqqrOCM+blD7sChba4V6RbgbWb7+nu8A7wbTHRWcJy9Ml7gZux/YmX/GKcgU7R0LXbLPSCqaJ5v1z3oE4wY8fnfMHzDcyrlP5s3VM7gq0uJDG4fMzT7FNnPcChPjcrKPmSAIstNh8STZp2F6F0jskY9Udf+2dbi+ogU4gLOO0QNnbX+wV4Rme/JjYkwMO+gw4N/WDqh6jTBWZ/SCgw=
 matrix:
   include:
-    - os: linux
-      dist: trusty
-      addons:
-        apt:
-         update: true
-         sources:
-           - ubuntu-toolchain-r-test
-           - deadsnakes
-         packages:
-           - libcurl4-openssl-dev
-           - python3.6-dev 
-           - python3.6-venv
-           - xorg-dev
-           - libglu1-mesa-dev
-           - g++-7
-           - gcc-7
-           - binutils-2.26
-      before_script:    
-         - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90
-         - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
-         - curl -Ls "https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download" -o gdrive
-         - curl -Ls https://cmake.org/files/v3.10/cmake-3.10.3-Linux-x86_64.sh -o cmake-3.10.3-Linux-x86_64.sh
-         - bash cmake-3.10.3-Linux-x86_64.sh --skip-license
-         - export CMAKE=$(pwd)/bin/cmake
-         - export PATH=/usr/lib/binutils-2.26/bin:${PATH}
-         - ld -v
-      deploy:
-         provider: script
-         script: bash $TRAVIS_BUILD_DIR/deploy.sh
-         on:
-            repo: EKA2L1/EKA2L1
-         
+  - os: linux
+    dist: trusty
+    addons:
+      apt:
+        update: true
+        sources:
+        - ubuntu-toolchain-r-test
+        - deadsnakes
+        packages:
+        - libcurl4-openssl-dev
+        - python3.6-dev
+        - python3.6-venv
+        - xorg-dev
+        - libglu1-mesa-dev
+        - g++-7
+        - gcc-7
+        - binutils-2.26
+    before_script:
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90
+    - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
+    - curl -Ls "https://docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download"
+      -o gdrive
+    - curl -Ls https://cmake.org/files/v3.10/cmake-3.10.3-Linux-x86_64.sh -o cmake-3.10.3-Linux-x86_64.sh
+    - bash cmake-3.10.3-Linux-x86_64.sh --skip-license
+    - export CMAKE=$(pwd)/bin/cmake
+    - export PATH=/usr/lib/binutils-2.26/bin:${PATH}
+    - ld -v
+    deploy:
+      provider: script
+      script: bash $TRAVIS_BUILD_DIR/deploy.sh
+      on:
+        repo: pent0/EKA2L1
 script:
-  - mkdir build
-  - cd build
-  - ${CMAKE} -DCMAKE_BUILD_TYPE=Release ..
-  - make -j4
-  - make CTEST_OUTPUT_ON_FAILURE=1 ekatests
-  - cd ..
+- mkdir build
+- cd build
+- "${CMAKE} -DCMAKE_BUILD_TYPE=Release .."
+- make -j4
+- make CTEST_OUTPUT_ON_FAILURE=1 ekatests
+- cd ..
