@@ -36,6 +36,7 @@ matrix:
     deploy:
       provider: script
       script: bash $TRAVIS_BUILD_DIR/deploy.sh
+      skip_cleanup: true
       on:
         repo: pent0/EKA2L1
         all_branches: true
