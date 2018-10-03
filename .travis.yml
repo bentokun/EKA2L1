@@ -37,6 +37,7 @@ matrix:
       script: bash $TRAVIS_BUILD_DIR/deploy.sh
       on:
         repo: pent0/EKA2L1
+        all_branches: true
 script:
 - mkdir build
 - cd build
