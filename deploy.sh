@@ -5,5 +5,6 @@ echo "Creating archive $ARCHIVE"
 tar czf $ARCHIVE $TRAVIS_BUILD_DIR/build/bin
 FILESIZE=$(stat -c%s "$ARCHIVE")
 echo "Finished archive (size $FILESIZE), starting Google Drive upload"
+chmod u+x $GDRIVE_EXEC_DIR/gdrive
 $GDRIVE_EXEC_DIR/gdrive upload --refresh-token $GDRIVE_REFRESH_TOKEN --parent $GDRIVE_DIR "$ARCHIVE"
 echo "Finished Google Drive upload"
