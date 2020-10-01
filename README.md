@@ -1,3 +1,7 @@
+# PLEASE GO TO [MAIN REPO](https://github.com/eka2l1/eka2l1/)! THIS FORK IS INACTIVE.
+
+I keep it for nosta.
+
 # EKA2L1 [![Status](https://ci.appveyor.com/api/projects/status/hnm73527hkrfrffm/branch/master?svg=true)](https://ci.appveyor.com/project/bentokun/eka2l1-mjiuq)
 - Best Symbian OS emulator to install and run malware. You can print things too!
 
